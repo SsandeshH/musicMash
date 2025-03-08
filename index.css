@@ -66,12 +66,16 @@
             width: auto;
             height: 20px;
             margin-top: 30px;
+            text-align: center;
+            font-size: x-large;
         }
 
         .add ,.substract{
             margin-top: 15px;
             width: 8vw;
             height: 8vh;
+            font-size: xx-large;
+            
         }
         .chords-inp{
             width: 20vw;
@@ -79,7 +83,8 @@
         }
         input::placeholder {
             letter-spacing: 4px;
-          }
+            text-align: center;
+        }
         
 
         /* for phone */
