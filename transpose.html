@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transposer</title>
+</head>
+<body>
+    <h1>Transposer</h1>
+    <input type = "name" placeholder="Enter chords" class = "js-user-input">
+    <button onclick = "transpose('up')">Half step up</button>
+    <button onclick = "transpose('down')">Half step down</button>
+    <p class = "js-transposed-chords"></p>
+
+    <script>
+        function transpose(direction){
+            let input = document.querySelector('.js-user-input').value.trim();
+                      let chordsUp = {
+                        'A': 'A#', 'A#': 'B', 'B': 'C', 'C': 'C#', 'C#': 'D', 
+                        'D': 'D#', 'D#': 'E', 'E': 'F', 'F': 'F#', 'F#': 'G', 'G': 'G#', 'G#': 'A'
+                    };
+        
+                    let chordsDown = {
+                        'A': 'G#', 'A#': 'A', 'B': 'A#', 'C': 'B', 'C#': 'C', 
+                        'D': 'C#', 'D#': 'D', 'E': 'D#', 'F': 'E', 'F#': 'F', 'G': 'F#', 'G#': 'G'
+                    };
+                let transposedChord = direction === 'up' ? chordsUp[input] : chordsDown[input];   
+                
+                document.querySelector('.js-transposed-chords').innerHTML = transposedChord ? `Transposed chord: ${transposedChord}` : 'Please enter a valid chord';
+        }
+        
+    </script>
+</body>
+</html>
