@@ -8,27 +8,53 @@
 <body>
     <h1>Transposer</h1>
     <input type = "name" placeholder="Enter chords" class = "js-user-input">
-    <button onclick = "transpose('up')">Half step up</button>
-    <button onclick = "transpose('down')">Half step down</button>
+    <button onclick = "transpose(1)">Half step up</button>
+    <button onclick = "transpose(-1)">Half step down</button>
     <p class = "js-transposed-chords"></p>
 
     <script>
-        function transpose(direction){
-            let input = document.querySelector('.js-user-input').value.trim();
-                      let chordsUp = {
-                        'A': 'A#', 'A#': 'B', 'B': 'C', 'C': 'C#', 'C#': 'D', 
-                        'D': 'D#', 'D#': 'E', 'E': 'F', 'F': 'F#', 'F#': 'G', 'G': 'G#', 'G#': 'A'
-                    };
-        
-                    let chordsDown = {
-                        'A': 'G#', 'A#': 'A', 'B': 'A#', 'C': 'B', 'C#': 'C', 
-                        'D': 'C#', 'D#': 'D', 'E': 'D#', 'F': 'E', 'F#': 'F', 'G': 'F#', 'G#': 'G'
-                    };
-                let transposedChord = direction === 'up' ? chordsUp[input] : chordsDown[input];   
-                
-                document.querySelector('.js-transposed-chords').innerHTML = transposedChord ? `Transposed chord: ${transposedChord}` : 'Please enter a valid chord';
-        }
-        
+       const chords = {
+        'c': 1,
+        'c#': 2,
+        'd': 3,
+        'd#': 4,
+        'e': 5,
+        'f': 6,
+        'f#': 7, 
+        'g': 8,
+        'g#': 9,
+        'a': 10,
+        'a#': 11,
+        'b': 12
+       };
+
+       function transpose(step){
+        let input = document.querySelector('.js-user-input').value.split(' ');
+        let result = input.map(chord =>{
+            let normalChords = chord.trim().toLowerCase();
+
+            if(chords[normalChords]){
+                let changedChords = (chords[normalChords] + step - 1 + 12) %12 + 1;
+
+                let newChords = Object.keys(chords).find(key => chords[key] === changedChords);
+
+                return newChords.toUpperCase();
+
+            }
+            else{
+                document.querySelector('.js-transposed-chords').innerHTML = `${chord} not found. Please enter a valid chord.`;
+                console.log('Enter a valid chord');
+            }
+
+        });
+
+        document.querySelector('.js-transposed-chords').innerText = result.join(' ');
+
+        document.querySelector('.js-user-input').value = result.join(' ');
+
+       }
+
+     
     </script>
 </body>
 </html>
