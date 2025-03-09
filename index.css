@@ -86,6 +86,33 @@
             text-align: center;
         }
         
+        /* darkmode lightmode configure */
+        .light-dark{
+            margin-top: 5px;
+            position: relative;
+        }
+
+        .top-section{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .light-dark{
+            width: 3vw;
+        }
+        button .sun .moon{
+            font-size: larger;
+            position: absolute;
+        }
+
+        .sun{
+            display: none;
+        }
+
+        .moon{
+            display: block;
+        }
 
         /* for phone */
         @media screen and (max-width:425px){

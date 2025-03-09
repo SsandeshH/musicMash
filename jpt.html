@@ -7,9 +7,10 @@
     <script src="jquery-3.7.1.min.js"></script>
     <script>
     $(function(){
-    a = ['a','b','c','d']
+    a = ['amno','b','c','d']
     b = [1,0,1,0]
-
+    i = 0
+    console.log(a[i].split('').slice(0,-1))
     function changes(a,b){
         for(let i = 0;i<a.length;i++){
             if(b[i]==1){
@@ -19,6 +20,7 @@
             }
         }
     }
+    
     changes(a,b)
 })
     
