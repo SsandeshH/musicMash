@@ -1,13 +1,36 @@
 $(function(){
     // Box Animation
     $(".transpose").on("click",function(){
+        $(".metronomeBox").hide()
+        $(".earTrainBox").hide()
+        $(".menu-box").animate({ top: '10vh'})
+        $(".transposeBox").show(500).css({
+                display : "flex",
+                justifyContent : "space-around"
+            })
+            
+    })
+
+    $(".metronome").on("click",function(){
+        $(".transposeBox").hide()
+        $(".earTrainBox").hide()
+        $(".menu-box").animate({ top: '10vh'})
+        $(".metronomeBox").show(500).css({
+                display : "flex",
+                justifyContent : "space-around"
+            })
+            
+    })
+
+    $(".earTrainBox").on("click",function(){
+        $(".transposeBox").hide()
+        $(".metronomeBox").hide()
         $(".menu-box").animate({ top: '10vh'})
         $(".features").show(500).css({
                 display : "flex",
                 justifyContent : "space-around"
             })
     })
-
     //sun-moon toggle(Dark-Moon)
     $(".moon").on("click",function(){
         $(".moon").hide("fast",function(){

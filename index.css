@@ -70,19 +70,19 @@
             font-size: x-large;
         }
 
-        .add ,.substract{
+        .btn{
             margin-top: 15px;
             width: 8vw;
             height: 8vh;
-            font-size: xx-large;
+            font-size: x-large;
             
         }
-        .chords-inp{
+        .inp{
             width: 20vw;
             height: 5vh;
         }
         input::placeholder {
-            letter-spacing: 4px;
+            letter-spacing: 2px;
             text-align: center;
         }
         
