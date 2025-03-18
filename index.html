@@ -13,11 +13,71 @@
             <h3>Menu</h3>
             <hr>
             <ul>
-                <li><button href = "transpose.html" class="transpose">Transpose</button></li>
+                <li><button class="transpose js-transpose">Transpose</button></li>
                 <li><button class="metronome">Metronome</button></li>
                 <li><button class="ear-train">Ear Train</button></li>
             </ul>
         </div>
     </div>
+    <div class = "js-output-container output-container">
+        <h1>Transposer</h1>
+    <input type = "name" placeholder="Enter chords" class = "js-user-input user-input">
+    <button onclick = "transpose(1)">Half step up</button>
+    <button onclick = "transpose(-1)">Half step down</button>
+    <p class = "js-transposed-chords"></p>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            const slider = document.querySelector('.js-output-container');
+            const transposeBtn = document.querySelector('.js-transpose');
+
+            function toggleSlider(){
+                slider.classList.toggle("active");
+            }
+
+            transposeBtn.addEventListener('click', toggleSlider);
+           });
+        
+        const chords = {
+            'c': 1,
+            'c#': 2,
+            'd': 3,
+            'd#': 4,
+            'e': 5,
+            'f': 6,
+            'f#': 7, 
+            'g': 8,
+            'g#': 9,
+            'a': 10,
+            'a#': 11,
+            'b': 12
+           };
+    
+           function transpose(step){
+            let input = document.querySelector('.js-user-input').value.split(' ');
+            let result = input.map(chord =>{
+                let minorChords = chord.toLowerCase().endsWith('m');
+                let normalChords = minorChords ? chord.slice(0, -1).toLowerCase() : chord.toLowerCase(); 
+                if(chords[normalChords] !== undefined){
+                    let changedChords = (chords[normalChords] + step - 1 + 12) %12 + 1;
+    
+                    let newChords = Object.keys(chords).find(key => chords[key] === changedChords);
+    
+                    return minorChords ? newChords.toUpperCase() + 'm' : newChords.toUpperCase();
+    
+                }
+                else{
+                    document.querySelector('.js-transposed-chords').innerHTML = `${chord} not found. Please enter a valid chord.`;
+                    console.log('Enter a valid chord');
+                }
+    
+            });
+    
+            document.querySelector('.js-transposed-chords').innerText = result.join(' ');
+    
+            document.querySelector('.js-user-input').value = result.join(' ');
+    
+           }
+    </script>
 </body>
 </html>
