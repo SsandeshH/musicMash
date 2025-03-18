@@ -40,13 +40,23 @@
         document.addEventListener("DOMContentLoaded", function(){
             const slider = document.querySelector('.js-output-container');
             const transposeBtn = document.querySelector('.js-transpose');
+            const slider1 = document.querySelector('.js-metronome-output-container');
+            const metronomeBtn = document.querySelector('.js-metronome');
 
-            function toggleSlider(){
-                slider.classList.toggle("active");
-            }
+       function toggleSlider(){
+        slider.classList.toggle("active");
+        slider1.classList.remove("active");
+       }
 
-            transposeBtn.addEventListener('click', toggleSlider);
-           });
+       function toggleSlider1(){
+        slider1.classList.toggle("active");
+        slider.classList.remove("active")
+       }
+
+       transposeBtn.addEventListener('click', toggleSlider);
+       metronomeBtn.addEventListener('click', toggleSlider1);
+    });
+
         
         const chords = {
             'c': 1,
@@ -88,18 +98,6 @@
             document.querySelector('.js-user-input').value = result.join(' ');
     
            }
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", ()=>{
-            const slider1 = document.querySelector('.js-metronome-output-container');
-            const metronomeBtn = document.querySelector('.js-metronome');
-
-            function toggleMetronome(){
-                slider1.classList.toggle("active");
-            }
-
-            metronomeBtn.addEventListener('click', toggleMetronome);
-        });
     </script>
 </body>
 </html>

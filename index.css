@@ -67,8 +67,8 @@
                 box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
             }
         }
-        /* for tablet */
-        @media screen and (min-width:426px) and (max-width:768px){
+        /* for phone */
+        @media (max-width:425px){
             .menu-box{
                 width: 400px;
                 height: auto;
@@ -81,35 +81,36 @@
             }
         }
 
-        .output-container {
-            visibility: hidden;
-            position: fixed;
-            width: 400px;
-            max-width: 600px;
-            color: black;
-            background-color: rgb(232, 229, 232);
-            padding: 15px;
-            border-radius: 25px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            font-family: Arial, sans-serif;
-            font-size: 16px;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            text-align: center;
-            margin-left: 530px;
-        
-            /* Animation properties */
-            transform: translateY(-100%);
-            opacity: 0;
-            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
-        }
-        
-        /* When active, expand the container */
-        .output-container.active {
-            visibility: visible;
-          transform: translateY(0);
-          opacity: 1;
-        }
+            .output-container {
+                visibility: hidden;
+                position: fixed;
+                width: 400px;
+                max-width: 600px;
+                color: black;
+                background-color: rgb(232, 229, 232);
+                padding: 15px;
+                border-radius: 25px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                font-family: Arial, sans-serif;
+                font-size: 16px;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                text-align: center;
+                margin-left: 530px;
+            
+                /* Animation properties */
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+            }
+            
+            /* When active, expand the container */
+            .output-container.active {
+                visibility: visible;
+              transform: translateY(0);
+              opacity: 1;
+            }
+
         .metronome-output-container {
             visibility: hidden;
             position: fixed;
@@ -132,12 +133,11 @@
             opacity: 0;
             transition: transform 0.5s ease-out, opacity 0.5s ease-out;
         }
-        
-        .metronome-output-container.active {
-            visibility: visible;
-            transform: translateY(0);
-            
-            opacity: 1;
+
+            .metronome-output-container.active {
+                visibility: visible;
+                transform: translateY(0);  
+                opacity: 1; 
         }
 
         .metronome-button-container{
@@ -155,6 +155,15 @@
             padding: 10px 0px;
             margin: 5px;
         }
+
+@media (max-width: 425px){
+    .output-container, .metronome-output-container {
+        width: 90%;
+        margin-left: 5%;
+    }
+}
+
+
         
         
         
