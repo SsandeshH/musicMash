@@ -14,7 +14,7 @@
             <hr>
             <ul>
                 <li><button class="transpose js-transpose">Transpose</button></li>
-                <li><button class="metronome">Metronome</button></li>
+                <li><button class="metronome js-metronome">Metronome</button></li>
                 <li><button class="ear-train">Ear Train</button></li>
             </ul>
         </div>
@@ -22,9 +22,19 @@
     <div class = "js-output-container output-container">
         <h1>Transposer</h1>
     <input type = "name" placeholder="Enter chords" class = "js-user-input user-input">
-    <button onclick = "transpose(1)">Half step up</button>
-    <button onclick = "transpose(-1)">Half step down</button>
+    <div class = "transpose-button-container">
+        <button onclick = "transpose(1)">Half step up</button>
+        <button onclick = "transpose(-1)">Half step down</button>
+    </div>
     <p class = "js-transposed-chords"></p>
+    </div>
+    <div class = "js-metronome-output-container metronome-output-container">
+        <h1>Metronome</h1>
+    <input type = "name" placeholder="Enter bpm" class = "js-number-input number-input">
+    <div class = "metronome-button-container">
+        <button class = "js-increase-bpm" onclick = "">+1</button>
+        <button class = "js-decrease-bpm" onclick = "">-1</button>
+    </div>
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", function(){
@@ -78,6 +88,18 @@
             document.querySelector('.js-user-input').value = result.join(' ');
     
            }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", ()=>{
+            const slider1 = document.querySelector('.js-metronome-output-container');
+            const metronomeBtn = document.querySelector('.js-metronome');
+
+            function toggleMetronome(){
+                slider1.classList.toggle("active");
+            }
+
+            metronomeBtn.addEventListener('click', toggleMetronome);
+        });
     </script>
 </body>
 </html>

@@ -38,6 +38,10 @@
             color: black;
             border: none;
             margin: 2px;
+            cursor: pointer;
+            pointer-events: auto;
+            z-index: 100;
+
         }
         h3{
             padding: 10px;
@@ -78,6 +82,7 @@
         }
 
         .output-container {
+            visibility: hidden;
             position: fixed;
             width: 400px;
             max-width: 600px;
@@ -101,13 +106,56 @@
         
         /* When active, expand the container */
         .output-container.active {
+            visibility: visible;
           transform: translateY(0);
           opacity: 1;
         }
+        .metronome-output-container {
+            visibility: hidden;
+            position: fixed;
+            width: 400px;
+            max-width: 600px;
+            color: black;
+            background-color: rgb(232, 229, 232);
+            padding: 15px;
+            border-radius: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            text-align: center;
+            margin-left: 530px;
         
+            /* Animation properties */
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+        }
+        
+        .metronome-output-container.active {
+            visibility: visible;
+            transform: translateY(0);
+            
+            opacity: 1;
+        }
 
-    
+        .metronome-button-container{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 0px;
+            margin: 5px;
+        }
 
+        .transpose-button-container{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 0px;
+            margin: 5px;
+        }
+        
         
         
         
