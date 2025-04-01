@@ -7,7 +7,23 @@
 }
 
 body {
-    background-color: #f4f4f4; /* Background color for the page */
+    background-color: #f4f4f4; /* Background color for the page */    
+}
+
+.menu-text{
+    color: black;
+}
+
+.dark-mode{
+    background-color: black;
+    color: white;
+}
+
+.logo{
+    position: relative;
+    top: 10px;
+    left: 10px;
+    
 }
 
 .mode-container {

@@ -7,15 +7,16 @@
     <link rel="stylesheet" href="index.css">
     
 </head>
-<body>
+<h1 class = "logo">Music Mash</h1>
+<body class = "darkmode">
     <div class = "mode-container">
-        <input class = "modes" type = "checkbox" id = "darkmode-toggle">
+        <input class = "modes" type = "checkbox" id = "darkmode-toggle" onchange = "switchModes()">
         <label for = "darkmode-toggle"></label>
     </div>
     
     <div class="container">
         <div class="menu-box">
-            <h3>Menu</h3>
+            <h3 class = "menu-text">Menu</h3>
             <hr>
             <ul>
                 <li><button class="transpose js-transpose">Transpose</button></li>
@@ -41,68 +42,74 @@
         <button class = "js-decrease-bpm" onclick = "">-1</button>
     </div>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function(){
-            const slider = document.querySelector('.js-output-container');
-            const transposeBtn = document.querySelector('.js-transpose');
-            const slider1 = document.querySelector('.js-metronome-output-container');
-            const metronomeBtn = document.querySelector('.js-metronome');
-
-       function toggleSlider(){
-        slider.classList.toggle("active");
-        slider1.classList.remove("active");
-       }
-
-       function toggleSlider1(){
-        slider1.classList.toggle("active");
-        slider.classList.remove("active")
-       }
-
-       transposeBtn.addEventListener('click', toggleSlider);
-       metronomeBtn.addEventListener('click', toggleSlider1);
-    });
-
-        
-        const chords = {
-            'c': 1,
-            'c#': 2,
-            'd': 3,
-            'd#': 4,
-            'e': 5,
-            'f': 6,
-            'f#': 7, 
-            'g': 8,
-            'g#': 9,
-            'a': 10,
-            'a#': 11,
-            'b': 12
-           };
-    
-           function transpose(step){
-            let input = document.querySelector('.js-user-input').value.split(' ');
-            let result = input.map(chord =>{
-                let minorChords = chord.toLowerCase().endsWith('m');
-                let normalChords = minorChords ? chord.slice(0, -1).toLowerCase() : chord.toLowerCase(); 
-                if(chords[normalChords] !== undefined){
-                    let changedChords = (chords[normalChords] + step - 1 + 12) %12 + 1;
-    
-                    let newChords = Object.keys(chords).find(key => chords[key] === changedChords);
-    
-                    return minorChords ? newChords.toUpperCase() + 'm' : newChords.toUpperCase();
-    
-                }
-                else{
-                    document.querySelector('.js-transposed-chords').innerHTML = `${chord} not found. Please enter a valid chord.`;
-                    console.log('Enter a valid chord');
-                }
-    
-            });
-    
-            document.querySelector('.js-transposed-chords').innerText = result.join(' ');
-    
-            document.querySelector('.js-user-input').value = result.join(' ');
-    
-           }
-    </script>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        const slider = document.querySelector('.js-output-container');
+        const transposeBtn = document.querySelector('.js-transpose');
+        const slider1 = document.querySelector('.js-metronome-output-container');
+        const metronomeBtn = document.querySelector('.js-metronome');
+
+   function toggleSlider(){
+    slider.classList.toggle("active");
+    slider1.classList.remove("active");
+   }
+
+   function toggleSlider1(){
+    slider1.classList.toggle("active");
+    slider.classList.remove("active")
+   }
+
+   transposeBtn.addEventListener('click', toggleSlider);
+   metronomeBtn.addEventListener('click', toggleSlider1);
+});
+
+function switchModes(){
+    var switcher = document.body;
+switcher.classList.toggle("dark-mode");
+}
+    
+    const chords = {
+        'c': 1,
+        'c#': 2,
+        'd': 3,
+        'd#': 4,
+        'e': 5,
+        'f': 6,
+        'f#': 7, 
+        'g': 8,
+        'g#': 9,
+        'a': 10,
+        'a#': 11,
+        'b': 12
+       };
+
+       function transpose(step){
+        let input = document.querySelector('.js-user-input').value.split(' ');
+        let result = input.map(chord =>{
+            let minorChords = chord.toLowerCase().endsWith('m');
+            let normalChords = minorChords ? chord.slice(0, -1).toLowerCase() : chord.toLowerCase(); 
+            if(chords[normalChords] !== undefined){
+                let changedChords = (chords[normalChords] + step - 1 + 12) %12 + 1;
+
+                let newChords = Object.keys(chords).find(key => chords[key] === changedChords);
+
+                return minorChords ? newChords.toUpperCase() + 'm' : newChords.toUpperCase();
+
+            }
+            else{
+                document.querySelector('.js-transposed-chords').innerHTML = `${chord} not found. Please enter a valid chord.`;
+                console.log('Enter a valid chord');
+            }
+
+        });
+
+        document.querySelector('.js-transposed-chords').innerText = result.join(' ');
+
+        document.querySelector('.js-user-input').value = result.join(' ');
+
+       }
+
+
+</script>
 </html>

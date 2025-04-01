@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="practice.css">
+    <title>Dark Mode Toggle</title>
+</head>
+<body>
+    <header>
+        <button onclick="switchModes()">Switch mode</button>
+    </header>
+</body>
+<script>
+    function switchModes() {
+        var element = document.body;
+        element.classList.toggle("darkmode"); 
+    }
+</script>
+</html>
