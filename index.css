@@ -72,6 +72,30 @@ button {
     z-index: 100;
 }
 
+.increase-bpm, .decrease-bpm{
+    background-color: rgb(232, 229, 232);
+    border-radius: 50px;
+    border-width: 2px;
+    width: 40%;
+    font-size: larger;
+    color: black;
+    border: none;
+    margin: 20px;
+    gap: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 100;
+}
+
+
+
+.tempo{
+    position: relative;
+    top: 8px;
+    font-size: 25px;;
+}
+
 h3 {
     padding: 10px;
 }

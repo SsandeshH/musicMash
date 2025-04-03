@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
     <link rel="stylesheet" href="index.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <h1 class = "logo">Music Mash</h1>
 <body class = "darkmode">
@@ -36,10 +36,12 @@
     </div>
     <div class = "js-metronome-output-container metronome-output-container">
         <h1>Metronome</h1>
-    <input type = "name" placeholder="Enter bpm" class = "js-number-input number-input">
+    <input type = "name" placeholder="Enter bpm" class = "js-number-input number-input"><br>
+    <span class = "tempo js-tempo">120</span>
     <div class = "metronome-button-container">
-        <button class = "js-increase-bpm" onclick = "">+1</button>
-        <button class = "js-decrease-bpm" onclick = "">-1</button>
+        <button class = "js-increase-bpm increase-bpm" onclick = "">+1</button>
+        <button onclick = "togglePlayPause()"class = "js-start-stop start-stop"><i class="fa-solid fa-play"></i></button>
+        <button class = "js-decrease-bpm decrease-bpm" onclick = "">-1</button>
     </div>
     </div>
 </body>
@@ -83,6 +85,18 @@ switcher.classList.toggle("dark-mode");
         'a#': 11,
         'b': 12
        };
+
+       function togglePlayPause() {
+        const icon = document.querySelector('.fa-play'); // Target the play icon initially
+        if (icon) {
+          icon.classList.remove('fa-play');
+          icon.classList.add('fa-pause');
+        } else {
+          const iconPause = document.querySelector('.fa-pause');
+          iconPause.classList.remove('fa-pause');
+          iconPause.classList.add('fa-play');
+        }
+      }
 
        function transpose(step){
         let input = document.querySelector('.js-user-input').value.split(' ');
