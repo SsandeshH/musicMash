@@ -36,17 +36,24 @@
     </div>
     <div class = "js-metronome-output-container metronome-output-container">
         <h1>Metronome</h1>
-    <input type = "name" placeholder="Enter bpm" class = "js-number-input number-input"><br>
+    <input type = "name" placeholder="Enter bpm" class = "js-number-input number-input">
+    <button class = "select-bpm js-select-bpm">Select</button><br>
+    <button class = "js-increase-bpm increase-bpm" onclick = "">+1</button>
     <span class = "tempo js-tempo">120</span>
+    <button class = "js-decrease-bpm decrease-bpm">-1</button>
+    <p class = "tempo-text js-tempo-text">Medium</p>
     <div class = "metronome-button-container">
-        <button class = "js-increase-bpm increase-bpm" onclick = "">+1</button>
         <button onclick = "togglePlayPause()"class = "js-start-stop start-stop"><i class="fa-solid fa-play"></i></button>
-        <button class = "js-decrease-bpm decrease-bpm" onclick = "">-1</button>
+    </div>
+    <p class = "desc-beat">Beats per measure</p>
+    <div class = "beats js-beats">
+        <button class = "js-add-beats add-beats">+</button>
+        <p class = "js-display-beats">4</p>
+        <button class = "js-sub-beats sub-beats">-</button>
     </div>
     </div>
 </body>
 <script>
-    document.addEventListener("DOMContentLoaded", function(){
         const slider = document.querySelector('.js-output-container');
         const transposeBtn = document.querySelector('.js-transpose');
         const slider1 = document.querySelector('.js-metronome-output-container');
@@ -64,7 +71,6 @@
 
    transposeBtn.addEventListener('click', toggleSlider);
    metronomeBtn.addEventListener('click', toggleSlider1);
-});
 
 function switchModes(){
     var switcher = document.body;
@@ -97,33 +103,7 @@ switcher.classList.toggle("dark-mode");
           iconPause.classList.add('fa-play');
         }
       }
-
-       function transpose(step){
-        let input = document.querySelector('.js-user-input').value.split(' ');
-        let result = input.map(chord =>{
-            let minorChords = chord.toLowerCase().endsWith('m');
-            let normalChords = minorChords ? chord.slice(0, -1).toLowerCase() : chord.toLowerCase(); 
-            if(chords[normalChords] !== undefined){
-                let changedChords = (chords[normalChords] + step - 1 + 12) %12 + 1;
-
-                let newChords = Object.keys(chords).find(key => chords[key] === changedChords);
-
-                return minorChords ? newChords.toUpperCase() + 'm' : newChords.toUpperCase();
-
-            }
-            else{
-                document.querySelector('.js-transposed-chords').innerHTML = `${chord} not found. Please enter a valid chord.`;
-                console.log('Enter a valid chord');
-            }
-
-        });
-
-        document.querySelector('.js-transposed-chords').innerText = result.join(' ');
-
-        document.querySelector('.js-user-input').value = result.join(' ');
-
-       }
-
-
 </script>
+<script src = "transpose.js"></script>
+<script src = "metronome.js"></script>
 </html>

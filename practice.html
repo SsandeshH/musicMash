@@ -8,12 +8,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <input type = "name" placeholder="Enter bpm" class = "js-number-input number-input"><br>
+    <input type = "name" placeholder="Enter bpm" class = "js-number-input number-input">
+    <button class = "js-select-bpm">Select</button><br>
     <span class = "tempo js-tempo">120</span>
+    <div class = "js-tempo-text"></div>
     <div class = "metronome-button-container">
         <button class = "js-increase-bpm" onclick = "">+1</button>
         <button class = "js-start-stop" onclick = "togglePlayPause()"><i class="fa-solid fa-play"></i></button>
         <button class = "js-decrease-bpm" onclick = "">-1</button>
+        <p class = "js-display-beats">4</p>
+        <button class = "js-sub-beats">-</button>
+        <button class = "js-add-beats">+</button>
 </body>
 <script src = "practice.js"></script>
 </html>
