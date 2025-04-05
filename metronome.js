@@ -54,7 +54,6 @@ selectBtn.addEventListener('click', () => {
     }
     bpm = inputValue; // Update the BPM value
     updateMetronome(); // Update the metronome display
-    startMetronome(bpm); // Start the metronome with the selected BPM
     togglePlayPause(); // Toggle play/pause icon
 });
 
@@ -97,32 +96,36 @@ function updateMetronome(){
 
 let metronomeTimer; // Variable to hold the metronome timer
 
+//The function to start the metronome
 function startMetronome(bpm){
     const interval = 60000/ bpm; // Calculate the interval in milliseconds
 
+    // Create a Metronome class to handle the timing
     function Metronome(callback, interval){
         this.interval = interval;
         
+        // The start function initializes the metronome
         this.start = () => {
-            this.expected = Date.now() + this.interval;
-            this.timeout = setTimeout(this.round, this.interval); 
-            console.log(this.timeout); 
+            this.expected = Date.now() + this.interval; //Calculate the expected time for the metronome to start
+            this.timeout = setTimeout(this.round, this.interval); //Set timeout for the first tick
+            console.log(this.timeout); //Print the timeout in console
         };
 
+        //The stop function stops the metronome
         this.stop = () => {
             clearTimeout(this.timeout); // Clear the timeout
-            console.log('Metronome stopped');
+            console.log('Metronome stopped'); // Print stopped message in console
         };
-
+        // The round function is called on each tick of the metronome
         this.round = () => {
-            callback(); // Call the callback function
+            callback(); // Call the callback function for each tick
             const drift = Date.now() - this.expected; // Calculate the drift
             this.expected += this.interval; // Update the expected time 
             this.timeout = setTimeout(this.round, Math.max(0, this.interval - drift)); // Set the next timeout
         };
     }
 
-
+    // Create a new instance of the Metronome class and pass the callback function to play the sound
     metronomeTimer = new Metronome(() => {
         tickSound.currentTime = 0; // Reset the sound to the beginning
         tickSound.play(); // Play the tick sound
@@ -131,7 +134,7 @@ function startMetronome(bpm){
 
     metronomeTimer.start(); // Start the metronome
 }
-
+//Function to stop the metronome
 function stopMetronome(){
     if(metronomeTimer){
         metronomeTimer.stop(); // Stop the metronome

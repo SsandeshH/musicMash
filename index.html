@@ -76,33 +76,6 @@ function switchModes(){
     var switcher = document.body;
 switcher.classList.toggle("dark-mode");
 }
-    
-    const chords = {
-        'c': 1,
-        'c#': 2,
-        'd': 3,
-        'd#': 4,
-        'e': 5,
-        'f': 6,
-        'f#': 7, 
-        'g': 8,
-        'g#': 9,
-        'a': 10,
-        'a#': 11,
-        'b': 12
-       };
-
-       function togglePlayPause() {
-        const icon = document.querySelector('.fa-play'); // Target the play icon initially
-        if (icon) {
-          icon.classList.remove('fa-play');
-          icon.classList.add('fa-pause');
-        } else {
-          const iconPause = document.querySelector('.fa-pause');
-          iconPause.classList.remove('fa-pause');
-          iconPause.classList.add('fa-play');
-        }
-      }
 </script>
 <script src = "transpose.js"></script>
 <script src = "metronome.js"></script>
