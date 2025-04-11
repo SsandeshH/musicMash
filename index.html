@@ -21,7 +21,7 @@
             <ul>
                 <li><button class="transpose js-transpose">Transpose</button></li>
                 <li><button class="metronome js-metronome">Metronome</button></li>
-                <li><button class="ear-train">Ear Train</button></li>
+                <li><button class="ear-train js-ear-train">Ear Train</button></li>
             </ul>
         </div>
     </div>
@@ -45,32 +45,45 @@
     <div class = "metronome-button-container">
         <button onclick = "togglePlayPause()"class = "js-start-stop start-stop"><i class="fa-solid fa-play"></i></button>
     </div>
-    <p class = "desc-beat">Beats per measure</p>
-    <div class = "beats js-beats">
-        <button class = "js-add-beats add-beats">+</button>
-        <p class = "js-display-beats">4</p>
-        <button class = "js-sub-beats sub-beats">-</button>
     </div>
-    </div>
+    <div class = "ear-train-output-container js-ear-train-output-container">
+        <h1>Ear Train</h1>
+        <input type = "name" placeholder = "Enter note" class = "js-ear-train-input ear-train-input">
+        <button class = "js-ear-train-button ear-train-button">Play</button>
+        <div class = "up-down-buttons js-up-down-buttons">
+            <button class = "js-ear-train-up ear-train-up">Up</button>
+            <button class = "js-ear-train-down ear-train-down">Down</button>
+        </div>
 </body>
 <script>
         const slider = document.querySelector('.js-output-container');
         const transposeBtn = document.querySelector('.js-transpose');
         const slider1 = document.querySelector('.js-metronome-output-container');
+        const slider2 = document.querySelector('.js-ear-train-output-container');
         const metronomeBtn = document.querySelector('.js-metronome');
+        const earTrainBtn = document.querySelector('.js-ear-train');
 
    function toggleSlider(){
     slider.classList.toggle("active");
     slider1.classList.remove("active");
+    slider2.classList.remove("active");
    }
 
    function toggleSlider1(){
     slider1.classList.toggle("active");
     slider.classList.remove("active")
+    slider2.classList.remove("active");
+   }
+
+   function toggleSlider2(){
+    slider2.classList.toggle("active");
+    slider.classList.remove("active");
+    slider1.classList.remove("active");
    }
 
    transposeBtn.addEventListener('click', toggleSlider);
    metronomeBtn.addEventListener('click', toggleSlider1);
+   earTrainBtn.addEventListener('click', toggleSlider2);
 
 function switchModes(){
     var switcher = document.body;

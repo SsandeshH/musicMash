@@ -19,6 +19,26 @@ body {
     color: white;
 }
 
+.dark-mode .menu-box {
+    box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.3),
+    0 0 20px rgba(255, 255, 255, 0.25),
+    0 0 30px rgba(255, 255, 255, 0.2),
+    0 0 40px rgba(255, 255, 255, 0.15),
+    0 0 60px rgba(255, 255, 255, 0.1);
+}
+
+.output-container
+.metronome-output-container .dark-mode{
+    box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.3),
+    0 0 20px rgba(255, 255, 255, 0.25),
+    0 0 30px rgba(255, 255, 255, 0.2),
+    0 0 40px rgba(255, 255, 255, 0.15),
+    0 0 60px rgba(255, 255, 255, 0.1);
+}
+
+
 .logo {
     position: relative;
     top: 10px;
@@ -229,8 +249,25 @@ button:hover {
     transition: transform 0.5s ease-out, opacity 0.5s ease-out;
 }
 
+.ear-train-output-container{
+    visibility: hidden;
+    position: fixed;
+    width: 300px;
+    max-width: 400px;
+    color: black;
+    background-color: rgb(232, 229, 232);
+    padding: 15px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
 .output-container.active,
-.metronome-output-container.active {
+.metronome-output-container.active, .ear-train-output-container.active {
     visibility: visible;
     transform: translate(-50%, 0);
     opacity: 1;

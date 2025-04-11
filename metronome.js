@@ -29,18 +29,12 @@ function togglePlayPause() {
   }
 
   decreaseTempoBtn.addEventListener('click', () => {
-    if (bpm <= 20) {
-        return; // Prevent the BPM from going below 20
-    }
     bpm--; // Decrease the tempo by 1 bpm with every click
     validateTempo(); // Validate the tempo
     updateMetronome(); // Update the metronome display
   });
 
   increaseTempoBtn.addEventListener('click', () => {
-    if(bpm >=280){
-        return; // Prevent the BPM from going above 280
-    }
     bpm++; // Increase the tempo by 1 bpm with every click
     validateTempo(); // Validate the tempo
     updateMetronome(); // Update the metronome display
