@@ -7,11 +7,12 @@
         }
         .container{
             width: auto;
-            height: 300px;
+            height: 80vh;
             /* background-color: aquamarine; */
             display: flex;
-            justify-content: center;
-            position: relative;
+            justify-content: space-around;
+            /* justify-content: center; */
+            /* position: relative; */
         }
         .menu-box{
             width: 30vw;
@@ -49,6 +50,69 @@
             /* box-shadow: rgba(212, 73, 13, 0.8) 0px 4px 8px; */
         }
 
+        .features{
+            display: none;
+            top: 300px;
+            position: relative;
+            width: 60vw;
+            height: 15vh;
+            background-color: rgb(232, 229, 232);
+            text-align: center;
+            border-radius: 25px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        }
+
+        input{
+            width: auto;
+            height: 20px;
+            margin-top: 30px;
+            text-align: center;
+            font-size: x-large;
+        }
+
+        .btn{
+            margin-top: 15px;
+            width: 8vw;
+            height: 8vh;
+            font-size: x-large;
+            
+        }
+        .inp{
+            width: 20vw;
+            height: 5vh;
+        }
+        input::placeholder {
+            letter-spacing: 2px;
+            text-align: center;
+        }
+        
+        /* darkmode lightmode configure */
+        .light-dark{
+            margin-top: 5px;
+            position: relative;
+        }
+
+        .top-section{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .light-dark{
+            width: 3vw;
+        }
+        button .sun .moon{
+            font-size: larger;
+            position: absolute;
+        }
+
+        .sun{
+            display: none;
+        }
+
+        .moon{
+            display: block;
+        }
 
         /* for phone */
         @media screen and (max-width:425px){

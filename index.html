@@ -5,19 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="transposin-feature.js"></script>
+    <script src="metronome-feature.js"></script>
+    <script src="index.js"></script>
+ 
     
 </head>
 <body>
+    <div class="top-section">
+        <div class="light-dark">
+            <button class="sun"><i class="fa-solid fa-sun"></i></button>
+            <button class="moon"><i class="fa-solid fa-moon"></i></button>
+        </div>
+    </div>
     <div class="container">
         <div class="menu-box">
             <h3>Menu</h3>
-            <hr>
+            <hr> 
             <ul>
                 <li><button class="transpose">Transpose</button></li>
                 <li><button class="metronome">Metronome</button></li>
-                <li><button class="ear-train">Ear Train</button></li>
+                <li><button class="earTrain">Ear Train</button></li>
             </ul>
         </div>
+        <div class="features transposeBox">
+            <!-- Transpose Feature -->
+            <button class="btn substract">-1</button>
+            <input type="text" placeholder="D Bm G A" class="chords-inp inp">
+            <button class="btn add">+1</button>
+        </div>
+        <div class="features metronomeBox">
+            <!-- Metronome -->
+             <button class="btn play">Play</button>
+             <input type="number" name="bpm" class="bpm inp" value="120">
+             <button class="btn tap">Tap</button>
+        </div>
+        <div class="features earTrainBox">
+            <!-- Ear Train -->
+             
+        </div>
     </div>
+    
 </body>
 </html>
